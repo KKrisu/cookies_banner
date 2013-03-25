@@ -4,15 +4,15 @@
     // configs
     var cookieName = 'c_cookies',
         cookieExDays = 365,
-        cookieInfoBaner = '<div id="cookie_info" style="color: #444; background: #fff; width: auto; min-width: 750px; max-width: 50%; margin: 0 auto; font: 12px Tahoma sans-serif; padding: 0.5em; border: 2px solid #29f; position: fixed; bottom: 0; left: 0; z-index: 9999;">'
+        cookieInfoBanner = '<div id="cookie_info" style="color: #444; background: #fff; width: auto; min-width: 750px; max-width: 50%; margin: 0 auto; font: 12px Tahoma sans-serif; padding: 0.5em; border: 2px solid #29f; position: fixed; bottom: 0; left: 0; z-index: 9999;">'
             +'<button style="float: right; margin: 5px; background-color: #29f; color: white; font-weight: bold; border-radius: 7px; cursor: pointer;" id="accept_cookies">Accept Cookies</button>'
             +'<div style="font-family: serif; font-size: 1.4em; background: #29f; float: left; padding: .25em .75em; border-radius: 50%; color: white; margin-right: .5em;">i</div>'
             +'<p style="margin: 0; overflow: hidden;"><strong>This website uses cookies.</strong> <a href="http://en.wikipedia.org/wiki/HTTP_cookie">What are cookies?</a></p>'
             +'<p style="margin: 0; overflow: hidden;">If you do not accept cookies leave our website or <a href="http://www.whatarecookies.com/enable.asp">Change your browser settings</a> to disable cookies.</p>'
         +'</div>';
     
-    // functions to handle cookies taken from: http://www.w3schools.com/js/js_cookies.asp
-    // with some improvements: escape/unescape functions changed to 
+    // ugly functions to handle cookies taken from: http://www.w3schools.com/js/js_cookies.asp
+    // with some improvements: escape/unescape functions changed to encodeURIComponent/decodeURIComponent
     function getCookie(c_name) {
         var i, x, y, ARRcookies=document.cookie.split(";");
         for (i=0; i<ARRcookies.length; i++)
@@ -34,7 +34,7 @@
     
     if(!getCookie(cookieName)) {
         var wrapper = document.createElement('div');
-        wrapper.innerHTML = cookieInfoBaner;
+        wrapper.innerHTML = cookieInfoBanner;
         document.body.appendChild(wrapper);
         
         var cookieDiv = document.getElementById('cookie_info');
